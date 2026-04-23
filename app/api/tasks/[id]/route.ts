@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "@/prisma/prisma";
-import { Priority, TaskTag, TaskStatus } from "@prisma/client";
+import { Priority, TaskStatus, TaskTag } from "@/generated/prisma";
 
 function todayMidnight() {
   const d = new Date(); d.setHours(0,0,0,0); return d;
