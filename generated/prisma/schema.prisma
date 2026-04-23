@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project {
+  id          String       @id @default(cuid())
+  name        String
+  description String       @db.Text
+  category    String       @default("General")
+  stage       ProjectStage @default(planning)
+  color       String       @default("#a3c47a")
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  tasks       Task[]
+}
+
+enum ProjectStage {
+  planning
+  doing
+  running
+  completed
+}
+
+model Task {
+  id        String     @id @default(cuid())
+  title     String
+  tag       TaskTag
+  priority  Priority
+  status    TaskStatus @default(waiting)
+  done      Boolean    @default(false)
+  doneAt    DateTime?
+  dueDate   DateTime
+  notes     String?    @db.Text
+  projectId String?
+  project   Project?   @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+enum TaskTag {
+  Adhoc
+  Event
+  Data
+  Learning
+}
+
+enum Priority {
+  High
+  Medium
+  Low
+}
+
+enum TaskStatus {
+  waiting
+  processing
+  on_time
+  over_due
+}
