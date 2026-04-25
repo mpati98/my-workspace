@@ -148,6 +148,25 @@ exports.Prisma.TaskScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.TopicScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  category: 'category',
+  description: 'description',
+  coverColor: 'coverColor',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubCardScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  topicId: 'topicId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -191,7 +210,9 @@ exports.TaskStatus = exports.$Enums.TaskStatus = {
 
 exports.Prisma.ModelName = {
   Project: 'Project',
-  Task: 'Task'
+  Task: 'Task',
+  Topic: 'Topic',
+  SubCard: 'SubCard'
 };
 
 /**

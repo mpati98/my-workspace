@@ -23,6 +23,16 @@ export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
  * 
  */
 export type Task = $Result.DefaultSelection<Prisma.$TaskPayload>
+/**
+ * Model Topic
+ * 
+ */
+export type Topic = $Result.DefaultSelection<Prisma.$TopicPayload>
+/**
+ * Model SubCard
+ * 
+ */
+export type SubCard = $Result.DefaultSelection<Prisma.$SubCardPayload>
 
 /**
  * Enums
@@ -224,6 +234,26 @@ export class PrismaClient<
     * ```
     */
   get task(): Prisma.TaskDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.topic`: Exposes CRUD operations for the **Topic** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Topics
+    * const topics = await prisma.topic.findMany()
+    * ```
+    */
+  get topic(): Prisma.TopicDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subCard`: Exposes CRUD operations for the **SubCard** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SubCards
+    * const subCards = await prisma.subCard.findMany()
+    * ```
+    */
+  get subCard(): Prisma.SubCardDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -659,7 +689,9 @@ export namespace Prisma {
 
   export const ModelName: {
     Project: 'Project',
-    Task: 'Task'
+    Task: 'Task',
+    Topic: 'Topic',
+    SubCard: 'SubCard'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -675,7 +707,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "project" | "task"
+      modelProps: "project" | "task" | "topic" | "subCard"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -827,6 +859,154 @@ export namespace Prisma {
           }
         }
       }
+      Topic: {
+        payload: Prisma.$TopicPayload<ExtArgs>
+        fields: Prisma.TopicFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TopicFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TopicFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          findFirst: {
+            args: Prisma.TopicFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TopicFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          findMany: {
+            args: Prisma.TopicFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>[]
+          }
+          create: {
+            args: Prisma.TopicCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          createMany: {
+            args: Prisma.TopicCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TopicCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>[]
+          }
+          delete: {
+            args: Prisma.TopicDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          update: {
+            args: Prisma.TopicUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          deleteMany: {
+            args: Prisma.TopicDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TopicUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TopicUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>[]
+          }
+          upsert: {
+            args: Prisma.TopicUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TopicPayload>
+          }
+          aggregate: {
+            args: Prisma.TopicAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTopic>
+          }
+          groupBy: {
+            args: Prisma.TopicGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TopicGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TopicCountArgs<ExtArgs>
+            result: $Utils.Optional<TopicCountAggregateOutputType> | number
+          }
+        }
+      }
+      SubCard: {
+        payload: Prisma.$SubCardPayload<ExtArgs>
+        fields: Prisma.SubCardFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubCardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubCardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          findFirst: {
+            args: Prisma.SubCardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubCardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          findMany: {
+            args: Prisma.SubCardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>[]
+          }
+          create: {
+            args: Prisma.SubCardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          createMany: {
+            args: Prisma.SubCardCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SubCardCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>[]
+          }
+          delete: {
+            args: Prisma.SubCardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          update: {
+            args: Prisma.SubCardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubCardDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubCardUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SubCardUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>[]
+          }
+          upsert: {
+            args: Prisma.SubCardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubCardPayload>
+          }
+          aggregate: {
+            args: Prisma.SubCardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubCard>
+          }
+          groupBy: {
+            args: Prisma.SubCardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubCardGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubCardCountArgs<ExtArgs>
+            result: $Utils.Optional<SubCardCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -937,6 +1117,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     project?: ProjectOmit
     task?: TaskOmit
+    topic?: TopicOmit
+    subCard?: SubCardOmit
   }
 
   /* Types for Logging */
@@ -1040,6 +1222,37 @@ export namespace Prisma {
    */
   export type ProjectCountOutputTypeCountTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TaskWhereInput
+  }
+
+
+  /**
+   * Count Type TopicCountOutputType
+   */
+
+  export type TopicCountOutputType = {
+    subCards: number
+  }
+
+  export type TopicCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCards?: boolean | TopicCountOutputTypeCountSubCardsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TopicCountOutputType without action
+   */
+  export type TopicCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TopicCountOutputType
+     */
+    select?: TopicCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TopicCountOutputType without action
+   */
+  export type TopicCountOutputTypeCountSubCardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubCardWhereInput
   }
 
 
@@ -3361,6 +3574,2183 @@ export namespace Prisma {
 
 
   /**
+   * Model Topic
+   */
+
+  export type AggregateTopic = {
+    _count: TopicCountAggregateOutputType | null
+    _min: TopicMinAggregateOutputType | null
+    _max: TopicMaxAggregateOutputType | null
+  }
+
+  export type TopicMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    category: string | null
+    description: string | null
+    coverColor: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TopicMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    category: string | null
+    description: string | null
+    coverColor: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TopicCountAggregateOutputType = {
+    id: number
+    title: number
+    category: number
+    description: number
+    coverColor: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TopicMinAggregateInputType = {
+    id?: true
+    title?: true
+    category?: true
+    description?: true
+    coverColor?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TopicMaxAggregateInputType = {
+    id?: true
+    title?: true
+    category?: true
+    description?: true
+    coverColor?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TopicCountAggregateInputType = {
+    id?: true
+    title?: true
+    category?: true
+    description?: true
+    coverColor?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TopicAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Topic to aggregate.
+     */
+    where?: TopicWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Topics to fetch.
+     */
+    orderBy?: TopicOrderByWithRelationInput | TopicOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TopicWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Topics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Topics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Topics
+    **/
+    _count?: true | TopicCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TopicMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TopicMaxAggregateInputType
+  }
+
+  export type GetTopicAggregateType<T extends TopicAggregateArgs> = {
+        [P in keyof T & keyof AggregateTopic]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTopic[P]>
+      : GetScalarType<T[P], AggregateTopic[P]>
+  }
+
+
+
+
+  export type TopicGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TopicWhereInput
+    orderBy?: TopicOrderByWithAggregationInput | TopicOrderByWithAggregationInput[]
+    by: TopicScalarFieldEnum[] | TopicScalarFieldEnum
+    having?: TopicScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TopicCountAggregateInputType | true
+    _min?: TopicMinAggregateInputType
+    _max?: TopicMaxAggregateInputType
+  }
+
+  export type TopicGroupByOutputType = {
+    id: string
+    title: string
+    category: string
+    description: string
+    coverColor: string
+    createdAt: Date
+    updatedAt: Date
+    _count: TopicCountAggregateOutputType | null
+    _min: TopicMinAggregateOutputType | null
+    _max: TopicMaxAggregateOutputType | null
+  }
+
+  type GetTopicGroupByPayload<T extends TopicGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TopicGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TopicGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TopicGroupByOutputType[P]>
+            : GetScalarType<T[P], TopicGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TopicSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    category?: boolean
+    description?: boolean
+    coverColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    subCards?: boolean | Topic$subCardsArgs<ExtArgs>
+    _count?: boolean | TopicCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["topic"]>
+
+  export type TopicSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    category?: boolean
+    description?: boolean
+    coverColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["topic"]>
+
+  export type TopicSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    category?: boolean
+    description?: boolean
+    coverColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["topic"]>
+
+  export type TopicSelectScalar = {
+    id?: boolean
+    title?: boolean
+    category?: boolean
+    description?: boolean
+    coverColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TopicOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "category" | "description" | "coverColor" | "createdAt" | "updatedAt", ExtArgs["result"]["topic"]>
+  export type TopicInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCards?: boolean | Topic$subCardsArgs<ExtArgs>
+    _count?: boolean | TopicCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TopicIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TopicIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TopicPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Topic"
+    objects: {
+      subCards: Prisma.$SubCardPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      category: string
+      description: string
+      coverColor: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["topic"]>
+    composites: {}
+  }
+
+  type TopicGetPayload<S extends boolean | null | undefined | TopicDefaultArgs> = $Result.GetResult<Prisma.$TopicPayload, S>
+
+  type TopicCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TopicFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TopicCountAggregateInputType | true
+    }
+
+  export interface TopicDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Topic'], meta: { name: 'Topic' } }
+    /**
+     * Find zero or one Topic that matches the filter.
+     * @param {TopicFindUniqueArgs} args - Arguments to find a Topic
+     * @example
+     * // Get one Topic
+     * const topic = await prisma.topic.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TopicFindUniqueArgs>(args: SelectSubset<T, TopicFindUniqueArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Topic that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TopicFindUniqueOrThrowArgs} args - Arguments to find a Topic
+     * @example
+     * // Get one Topic
+     * const topic = await prisma.topic.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TopicFindUniqueOrThrowArgs>(args: SelectSubset<T, TopicFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Topic that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicFindFirstArgs} args - Arguments to find a Topic
+     * @example
+     * // Get one Topic
+     * const topic = await prisma.topic.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TopicFindFirstArgs>(args?: SelectSubset<T, TopicFindFirstArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Topic that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicFindFirstOrThrowArgs} args - Arguments to find a Topic
+     * @example
+     * // Get one Topic
+     * const topic = await prisma.topic.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TopicFindFirstOrThrowArgs>(args?: SelectSubset<T, TopicFindFirstOrThrowArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Topics that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Topics
+     * const topics = await prisma.topic.findMany()
+     * 
+     * // Get first 10 Topics
+     * const topics = await prisma.topic.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const topicWithIdOnly = await prisma.topic.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TopicFindManyArgs>(args?: SelectSubset<T, TopicFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Topic.
+     * @param {TopicCreateArgs} args - Arguments to create a Topic.
+     * @example
+     * // Create one Topic
+     * const Topic = await prisma.topic.create({
+     *   data: {
+     *     // ... data to create a Topic
+     *   }
+     * })
+     * 
+     */
+    create<T extends TopicCreateArgs>(args: SelectSubset<T, TopicCreateArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Topics.
+     * @param {TopicCreateManyArgs} args - Arguments to create many Topics.
+     * @example
+     * // Create many Topics
+     * const topic = await prisma.topic.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TopicCreateManyArgs>(args?: SelectSubset<T, TopicCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Topics and returns the data saved in the database.
+     * @param {TopicCreateManyAndReturnArgs} args - Arguments to create many Topics.
+     * @example
+     * // Create many Topics
+     * const topic = await prisma.topic.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Topics and only return the `id`
+     * const topicWithIdOnly = await prisma.topic.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TopicCreateManyAndReturnArgs>(args?: SelectSubset<T, TopicCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Topic.
+     * @param {TopicDeleteArgs} args - Arguments to delete one Topic.
+     * @example
+     * // Delete one Topic
+     * const Topic = await prisma.topic.delete({
+     *   where: {
+     *     // ... filter to delete one Topic
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TopicDeleteArgs>(args: SelectSubset<T, TopicDeleteArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Topic.
+     * @param {TopicUpdateArgs} args - Arguments to update one Topic.
+     * @example
+     * // Update one Topic
+     * const topic = await prisma.topic.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TopicUpdateArgs>(args: SelectSubset<T, TopicUpdateArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Topics.
+     * @param {TopicDeleteManyArgs} args - Arguments to filter Topics to delete.
+     * @example
+     * // Delete a few Topics
+     * const { count } = await prisma.topic.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TopicDeleteManyArgs>(args?: SelectSubset<T, TopicDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Topics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Topics
+     * const topic = await prisma.topic.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TopicUpdateManyArgs>(args: SelectSubset<T, TopicUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Topics and returns the data updated in the database.
+     * @param {TopicUpdateManyAndReturnArgs} args - Arguments to update many Topics.
+     * @example
+     * // Update many Topics
+     * const topic = await prisma.topic.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Topics and only return the `id`
+     * const topicWithIdOnly = await prisma.topic.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TopicUpdateManyAndReturnArgs>(args: SelectSubset<T, TopicUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Topic.
+     * @param {TopicUpsertArgs} args - Arguments to update or create a Topic.
+     * @example
+     * // Update or create a Topic
+     * const topic = await prisma.topic.upsert({
+     *   create: {
+     *     // ... data to create a Topic
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Topic we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TopicUpsertArgs>(args: SelectSubset<T, TopicUpsertArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Topics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicCountArgs} args - Arguments to filter Topics to count.
+     * @example
+     * // Count the number of Topics
+     * const count = await prisma.topic.count({
+     *   where: {
+     *     // ... the filter for the Topics we want to count
+     *   }
+     * })
+    **/
+    count<T extends TopicCountArgs>(
+      args?: Subset<T, TopicCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TopicCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Topic.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TopicAggregateArgs>(args: Subset<T, TopicAggregateArgs>): Prisma.PrismaPromise<GetTopicAggregateType<T>>
+
+    /**
+     * Group by Topic.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TopicGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TopicGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TopicGroupByArgs['orderBy'] }
+        : { orderBy?: TopicGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TopicGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTopicGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Topic model
+   */
+  readonly fields: TopicFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Topic.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TopicClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subCards<T extends Topic$subCardsArgs<ExtArgs> = {}>(args?: Subset<T, Topic$subCardsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Topic model
+   */
+  interface TopicFieldRefs {
+    readonly id: FieldRef<"Topic", 'String'>
+    readonly title: FieldRef<"Topic", 'String'>
+    readonly category: FieldRef<"Topic", 'String'>
+    readonly description: FieldRef<"Topic", 'String'>
+    readonly coverColor: FieldRef<"Topic", 'String'>
+    readonly createdAt: FieldRef<"Topic", 'DateTime'>
+    readonly updatedAt: FieldRef<"Topic", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Topic findUnique
+   */
+  export type TopicFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter, which Topic to fetch.
+     */
+    where: TopicWhereUniqueInput
+  }
+
+  /**
+   * Topic findUniqueOrThrow
+   */
+  export type TopicFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter, which Topic to fetch.
+     */
+    where: TopicWhereUniqueInput
+  }
+
+  /**
+   * Topic findFirst
+   */
+  export type TopicFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter, which Topic to fetch.
+     */
+    where?: TopicWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Topics to fetch.
+     */
+    orderBy?: TopicOrderByWithRelationInput | TopicOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Topics.
+     */
+    cursor?: TopicWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Topics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Topics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Topics.
+     */
+    distinct?: TopicScalarFieldEnum | TopicScalarFieldEnum[]
+  }
+
+  /**
+   * Topic findFirstOrThrow
+   */
+  export type TopicFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter, which Topic to fetch.
+     */
+    where?: TopicWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Topics to fetch.
+     */
+    orderBy?: TopicOrderByWithRelationInput | TopicOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Topics.
+     */
+    cursor?: TopicWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Topics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Topics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Topics.
+     */
+    distinct?: TopicScalarFieldEnum | TopicScalarFieldEnum[]
+  }
+
+  /**
+   * Topic findMany
+   */
+  export type TopicFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter, which Topics to fetch.
+     */
+    where?: TopicWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Topics to fetch.
+     */
+    orderBy?: TopicOrderByWithRelationInput | TopicOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Topics.
+     */
+    cursor?: TopicWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Topics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Topics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Topics.
+     */
+    distinct?: TopicScalarFieldEnum | TopicScalarFieldEnum[]
+  }
+
+  /**
+   * Topic create
+   */
+  export type TopicCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Topic.
+     */
+    data: XOR<TopicCreateInput, TopicUncheckedCreateInput>
+  }
+
+  /**
+   * Topic createMany
+   */
+  export type TopicCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Topics.
+     */
+    data: TopicCreateManyInput | TopicCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Topic createManyAndReturn
+   */
+  export type TopicCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * The data used to create many Topics.
+     */
+    data: TopicCreateManyInput | TopicCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Topic update
+   */
+  export type TopicUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Topic.
+     */
+    data: XOR<TopicUpdateInput, TopicUncheckedUpdateInput>
+    /**
+     * Choose, which Topic to update.
+     */
+    where: TopicWhereUniqueInput
+  }
+
+  /**
+   * Topic updateMany
+   */
+  export type TopicUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Topics.
+     */
+    data: XOR<TopicUpdateManyMutationInput, TopicUncheckedUpdateManyInput>
+    /**
+     * Filter which Topics to update
+     */
+    where?: TopicWhereInput
+    /**
+     * Limit how many Topics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Topic updateManyAndReturn
+   */
+  export type TopicUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * The data used to update Topics.
+     */
+    data: XOR<TopicUpdateManyMutationInput, TopicUncheckedUpdateManyInput>
+    /**
+     * Filter which Topics to update
+     */
+    where?: TopicWhereInput
+    /**
+     * Limit how many Topics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Topic upsert
+   */
+  export type TopicUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Topic to update in case it exists.
+     */
+    where: TopicWhereUniqueInput
+    /**
+     * In case the Topic found by the `where` argument doesn't exist, create a new Topic with this data.
+     */
+    create: XOR<TopicCreateInput, TopicUncheckedCreateInput>
+    /**
+     * In case the Topic was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TopicUpdateInput, TopicUncheckedUpdateInput>
+  }
+
+  /**
+   * Topic delete
+   */
+  export type TopicDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+    /**
+     * Filter which Topic to delete.
+     */
+    where: TopicWhereUniqueInput
+  }
+
+  /**
+   * Topic deleteMany
+   */
+  export type TopicDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Topics to delete
+     */
+    where?: TopicWhereInput
+    /**
+     * Limit how many Topics to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Topic.subCards
+   */
+  export type Topic$subCardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    where?: SubCardWhereInput
+    orderBy?: SubCardOrderByWithRelationInput | SubCardOrderByWithRelationInput[]
+    cursor?: SubCardWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubCardScalarFieldEnum | SubCardScalarFieldEnum[]
+  }
+
+  /**
+   * Topic without action
+   */
+  export type TopicDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Topic
+     */
+    select?: TopicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Topic
+     */
+    omit?: TopicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TopicInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SubCard
+   */
+
+  export type AggregateSubCard = {
+    _count: SubCardCountAggregateOutputType | null
+    _min: SubCardMinAggregateOutputType | null
+    _max: SubCardMaxAggregateOutputType | null
+  }
+
+  export type SubCardMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    topicId: string | null
+  }
+
+  export type SubCardMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    topicId: string | null
+  }
+
+  export type SubCardCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    createdAt: number
+    updatedAt: number
+    topicId: number
+    _all: number
+  }
+
+
+  export type SubCardMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    topicId?: true
+  }
+
+  export type SubCardMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    topicId?: true
+  }
+
+  export type SubCardCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    topicId?: true
+    _all?: true
+  }
+
+  export type SubCardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubCard to aggregate.
+     */
+    where?: SubCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubCards to fetch.
+     */
+    orderBy?: SubCardOrderByWithRelationInput | SubCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SubCards
+    **/
+    _count?: true | SubCardCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubCardMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubCardMaxAggregateInputType
+  }
+
+  export type GetSubCardAggregateType<T extends SubCardAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubCard]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubCard[P]>
+      : GetScalarType<T[P], AggregateSubCard[P]>
+  }
+
+
+
+
+  export type SubCardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubCardWhereInput
+    orderBy?: SubCardOrderByWithAggregationInput | SubCardOrderByWithAggregationInput[]
+    by: SubCardScalarFieldEnum[] | SubCardScalarFieldEnum
+    having?: SubCardScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubCardCountAggregateInputType | true
+    _min?: SubCardMinAggregateInputType
+    _max?: SubCardMaxAggregateInputType
+  }
+
+  export type SubCardGroupByOutputType = {
+    id: string
+    title: string
+    description: string
+    createdAt: Date
+    updatedAt: Date
+    topicId: string
+    _count: SubCardCountAggregateOutputType | null
+    _min: SubCardMinAggregateOutputType | null
+    _max: SubCardMaxAggregateOutputType | null
+  }
+
+  type GetSubCardGroupByPayload<T extends SubCardGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubCardGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubCardGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubCardGroupByOutputType[P]>
+            : GetScalarType<T[P], SubCardGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubCardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    topicId?: boolean
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subCard"]>
+
+  export type SubCardSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    topicId?: boolean
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subCard"]>
+
+  export type SubCardSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    topicId?: boolean
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subCard"]>
+
+  export type SubCardSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    topicId?: boolean
+  }
+
+  export type SubCardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "createdAt" | "updatedAt" | "topicId", ExtArgs["result"]["subCard"]>
+  export type SubCardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }
+  export type SubCardIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }
+  export type SubCardIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    topic?: boolean | TopicDefaultArgs<ExtArgs>
+  }
+
+  export type $SubCardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SubCard"
+    objects: {
+      topic: Prisma.$TopicPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      description: string
+      createdAt: Date
+      updatedAt: Date
+      topicId: string
+    }, ExtArgs["result"]["subCard"]>
+    composites: {}
+  }
+
+  type SubCardGetPayload<S extends boolean | null | undefined | SubCardDefaultArgs> = $Result.GetResult<Prisma.$SubCardPayload, S>
+
+  type SubCardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubCardFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubCardCountAggregateInputType | true
+    }
+
+  export interface SubCardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SubCard'], meta: { name: 'SubCard' } }
+    /**
+     * Find zero or one SubCard that matches the filter.
+     * @param {SubCardFindUniqueArgs} args - Arguments to find a SubCard
+     * @example
+     * // Get one SubCard
+     * const subCard = await prisma.subCard.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubCardFindUniqueArgs>(args: SelectSubset<T, SubCardFindUniqueArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SubCard that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubCardFindUniqueOrThrowArgs} args - Arguments to find a SubCard
+     * @example
+     * // Get one SubCard
+     * const subCard = await prisma.subCard.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubCardFindUniqueOrThrowArgs>(args: SelectSubset<T, SubCardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubCard that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardFindFirstArgs} args - Arguments to find a SubCard
+     * @example
+     * // Get one SubCard
+     * const subCard = await prisma.subCard.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubCardFindFirstArgs>(args?: SelectSubset<T, SubCardFindFirstArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubCard that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardFindFirstOrThrowArgs} args - Arguments to find a SubCard
+     * @example
+     * // Get one SubCard
+     * const subCard = await prisma.subCard.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubCardFindFirstOrThrowArgs>(args?: SelectSubset<T, SubCardFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SubCards that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SubCards
+     * const subCards = await prisma.subCard.findMany()
+     * 
+     * // Get first 10 SubCards
+     * const subCards = await prisma.subCard.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subCardWithIdOnly = await prisma.subCard.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SubCardFindManyArgs>(args?: SelectSubset<T, SubCardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SubCard.
+     * @param {SubCardCreateArgs} args - Arguments to create a SubCard.
+     * @example
+     * // Create one SubCard
+     * const SubCard = await prisma.subCard.create({
+     *   data: {
+     *     // ... data to create a SubCard
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubCardCreateArgs>(args: SelectSubset<T, SubCardCreateArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SubCards.
+     * @param {SubCardCreateManyArgs} args - Arguments to create many SubCards.
+     * @example
+     * // Create many SubCards
+     * const subCard = await prisma.subCard.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubCardCreateManyArgs>(args?: SelectSubset<T, SubCardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SubCards and returns the data saved in the database.
+     * @param {SubCardCreateManyAndReturnArgs} args - Arguments to create many SubCards.
+     * @example
+     * // Create many SubCards
+     * const subCard = await prisma.subCard.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SubCards and only return the `id`
+     * const subCardWithIdOnly = await prisma.subCard.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SubCardCreateManyAndReturnArgs>(args?: SelectSubset<T, SubCardCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SubCard.
+     * @param {SubCardDeleteArgs} args - Arguments to delete one SubCard.
+     * @example
+     * // Delete one SubCard
+     * const SubCard = await prisma.subCard.delete({
+     *   where: {
+     *     // ... filter to delete one SubCard
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubCardDeleteArgs>(args: SelectSubset<T, SubCardDeleteArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SubCard.
+     * @param {SubCardUpdateArgs} args - Arguments to update one SubCard.
+     * @example
+     * // Update one SubCard
+     * const subCard = await prisma.subCard.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubCardUpdateArgs>(args: SelectSubset<T, SubCardUpdateArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SubCards.
+     * @param {SubCardDeleteManyArgs} args - Arguments to filter SubCards to delete.
+     * @example
+     * // Delete a few SubCards
+     * const { count } = await prisma.subCard.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubCardDeleteManyArgs>(args?: SelectSubset<T, SubCardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SubCards
+     * const subCard = await prisma.subCard.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubCardUpdateManyArgs>(args: SelectSubset<T, SubCardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubCards and returns the data updated in the database.
+     * @param {SubCardUpdateManyAndReturnArgs} args - Arguments to update many SubCards.
+     * @example
+     * // Update many SubCards
+     * const subCard = await prisma.subCard.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SubCards and only return the `id`
+     * const subCardWithIdOnly = await prisma.subCard.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SubCardUpdateManyAndReturnArgs>(args: SelectSubset<T, SubCardUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SubCard.
+     * @param {SubCardUpsertArgs} args - Arguments to update or create a SubCard.
+     * @example
+     * // Update or create a SubCard
+     * const subCard = await prisma.subCard.upsert({
+     *   create: {
+     *     // ... data to create a SubCard
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SubCard we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubCardUpsertArgs>(args: SelectSubset<T, SubCardUpsertArgs<ExtArgs>>): Prisma__SubCardClient<$Result.GetResult<Prisma.$SubCardPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SubCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardCountArgs} args - Arguments to filter SubCards to count.
+     * @example
+     * // Count the number of SubCards
+     * const count = await prisma.subCard.count({
+     *   where: {
+     *     // ... the filter for the SubCards we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubCardCountArgs>(
+      args?: Subset<T, SubCardCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubCardCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SubCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubCardAggregateArgs>(args: Subset<T, SubCardAggregateArgs>): Prisma.PrismaPromise<GetSubCardAggregateType<T>>
+
+    /**
+     * Group by SubCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCardGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubCardGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubCardGroupByArgs['orderBy'] }
+        : { orderBy?: SubCardGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubCardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubCardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SubCard model
+   */
+  readonly fields: SubCardFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SubCard.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubCardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    topic<T extends TopicDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TopicDefaultArgs<ExtArgs>>): Prisma__TopicClient<$Result.GetResult<Prisma.$TopicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SubCard model
+   */
+  interface SubCardFieldRefs {
+    readonly id: FieldRef<"SubCard", 'String'>
+    readonly title: FieldRef<"SubCard", 'String'>
+    readonly description: FieldRef<"SubCard", 'String'>
+    readonly createdAt: FieldRef<"SubCard", 'DateTime'>
+    readonly updatedAt: FieldRef<"SubCard", 'DateTime'>
+    readonly topicId: FieldRef<"SubCard", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SubCard findUnique
+   */
+  export type SubCardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter, which SubCard to fetch.
+     */
+    where: SubCardWhereUniqueInput
+  }
+
+  /**
+   * SubCard findUniqueOrThrow
+   */
+  export type SubCardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter, which SubCard to fetch.
+     */
+    where: SubCardWhereUniqueInput
+  }
+
+  /**
+   * SubCard findFirst
+   */
+  export type SubCardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter, which SubCard to fetch.
+     */
+    where?: SubCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubCards to fetch.
+     */
+    orderBy?: SubCardOrderByWithRelationInput | SubCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubCards.
+     */
+    cursor?: SubCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubCards.
+     */
+    distinct?: SubCardScalarFieldEnum | SubCardScalarFieldEnum[]
+  }
+
+  /**
+   * SubCard findFirstOrThrow
+   */
+  export type SubCardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter, which SubCard to fetch.
+     */
+    where?: SubCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubCards to fetch.
+     */
+    orderBy?: SubCardOrderByWithRelationInput | SubCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubCards.
+     */
+    cursor?: SubCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubCards.
+     */
+    distinct?: SubCardScalarFieldEnum | SubCardScalarFieldEnum[]
+  }
+
+  /**
+   * SubCard findMany
+   */
+  export type SubCardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter, which SubCards to fetch.
+     */
+    where?: SubCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubCards to fetch.
+     */
+    orderBy?: SubCardOrderByWithRelationInput | SubCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SubCards.
+     */
+    cursor?: SubCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubCards.
+     */
+    distinct?: SubCardScalarFieldEnum | SubCardScalarFieldEnum[]
+  }
+
+  /**
+   * SubCard create
+   */
+  export type SubCardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SubCard.
+     */
+    data: XOR<SubCardCreateInput, SubCardUncheckedCreateInput>
+  }
+
+  /**
+   * SubCard createMany
+   */
+  export type SubCardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SubCards.
+     */
+    data: SubCardCreateManyInput | SubCardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SubCard createManyAndReturn
+   */
+  export type SubCardCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * The data used to create many SubCards.
+     */
+    data: SubCardCreateManyInput | SubCardCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SubCard update
+   */
+  export type SubCardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SubCard.
+     */
+    data: XOR<SubCardUpdateInput, SubCardUncheckedUpdateInput>
+    /**
+     * Choose, which SubCard to update.
+     */
+    where: SubCardWhereUniqueInput
+  }
+
+  /**
+   * SubCard updateMany
+   */
+  export type SubCardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SubCards.
+     */
+    data: XOR<SubCardUpdateManyMutationInput, SubCardUncheckedUpdateManyInput>
+    /**
+     * Filter which SubCards to update
+     */
+    where?: SubCardWhereInput
+    /**
+     * Limit how many SubCards to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubCard updateManyAndReturn
+   */
+  export type SubCardUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * The data used to update SubCards.
+     */
+    data: XOR<SubCardUpdateManyMutationInput, SubCardUncheckedUpdateManyInput>
+    /**
+     * Filter which SubCards to update
+     */
+    where?: SubCardWhereInput
+    /**
+     * Limit how many SubCards to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SubCard upsert
+   */
+  export type SubCardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SubCard to update in case it exists.
+     */
+    where: SubCardWhereUniqueInput
+    /**
+     * In case the SubCard found by the `where` argument doesn't exist, create a new SubCard with this data.
+     */
+    create: XOR<SubCardCreateInput, SubCardUncheckedCreateInput>
+    /**
+     * In case the SubCard was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubCardUpdateInput, SubCardUncheckedUpdateInput>
+  }
+
+  /**
+   * SubCard delete
+   */
+  export type SubCardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+    /**
+     * Filter which SubCard to delete.
+     */
+    where: SubCardWhereUniqueInput
+  }
+
+  /**
+   * SubCard deleteMany
+   */
+  export type SubCardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubCards to delete
+     */
+    where?: SubCardWhereInput
+    /**
+     * Limit how many SubCards to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubCard without action
+   */
+  export type SubCardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCard
+     */
+    select?: SubCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubCard
+     */
+    omit?: SubCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubCardInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3406,6 +5796,31 @@ export namespace Prisma {
   };
 
   export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
+
+
+  export const TopicScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    category: 'category',
+    description: 'description',
+    coverColor: 'coverColor',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TopicScalarFieldEnum = (typeof TopicScalarFieldEnum)[keyof typeof TopicScalarFieldEnum]
+
+
+  export const SubCardScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    topicId: 'topicId'
+  };
+
+  export type SubCardScalarFieldEnum = (typeof SubCardScalarFieldEnum)[keyof typeof SubCardScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3715,6 +6130,131 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Task"> | Date | string
   }
 
+  export type TopicWhereInput = {
+    AND?: TopicWhereInput | TopicWhereInput[]
+    OR?: TopicWhereInput[]
+    NOT?: TopicWhereInput | TopicWhereInput[]
+    id?: StringFilter<"Topic"> | string
+    title?: StringFilter<"Topic"> | string
+    category?: StringFilter<"Topic"> | string
+    description?: StringFilter<"Topic"> | string
+    coverColor?: StringFilter<"Topic"> | string
+    createdAt?: DateTimeFilter<"Topic"> | Date | string
+    updatedAt?: DateTimeFilter<"Topic"> | Date | string
+    subCards?: SubCardListRelationFilter
+  }
+
+  export type TopicOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    coverColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    subCards?: SubCardOrderByRelationAggregateInput
+  }
+
+  export type TopicWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TopicWhereInput | TopicWhereInput[]
+    OR?: TopicWhereInput[]
+    NOT?: TopicWhereInput | TopicWhereInput[]
+    title?: StringFilter<"Topic"> | string
+    category?: StringFilter<"Topic"> | string
+    description?: StringFilter<"Topic"> | string
+    coverColor?: StringFilter<"Topic"> | string
+    createdAt?: DateTimeFilter<"Topic"> | Date | string
+    updatedAt?: DateTimeFilter<"Topic"> | Date | string
+    subCards?: SubCardListRelationFilter
+  }, "id">
+
+  export type TopicOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    coverColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TopicCountOrderByAggregateInput
+    _max?: TopicMaxOrderByAggregateInput
+    _min?: TopicMinOrderByAggregateInput
+  }
+
+  export type TopicScalarWhereWithAggregatesInput = {
+    AND?: TopicScalarWhereWithAggregatesInput | TopicScalarWhereWithAggregatesInput[]
+    OR?: TopicScalarWhereWithAggregatesInput[]
+    NOT?: TopicScalarWhereWithAggregatesInput | TopicScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Topic"> | string
+    title?: StringWithAggregatesFilter<"Topic"> | string
+    category?: StringWithAggregatesFilter<"Topic"> | string
+    description?: StringWithAggregatesFilter<"Topic"> | string
+    coverColor?: StringWithAggregatesFilter<"Topic"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Topic"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Topic"> | Date | string
+  }
+
+  export type SubCardWhereInput = {
+    AND?: SubCardWhereInput | SubCardWhereInput[]
+    OR?: SubCardWhereInput[]
+    NOT?: SubCardWhereInput | SubCardWhereInput[]
+    id?: StringFilter<"SubCard"> | string
+    title?: StringFilter<"SubCard"> | string
+    description?: StringFilter<"SubCard"> | string
+    createdAt?: DateTimeFilter<"SubCard"> | Date | string
+    updatedAt?: DateTimeFilter<"SubCard"> | Date | string
+    topicId?: StringFilter<"SubCard"> | string
+    topic?: XOR<TopicScalarRelationFilter, TopicWhereInput>
+  }
+
+  export type SubCardOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    topicId?: SortOrder
+    topic?: TopicOrderByWithRelationInput
+  }
+
+  export type SubCardWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SubCardWhereInput | SubCardWhereInput[]
+    OR?: SubCardWhereInput[]
+    NOT?: SubCardWhereInput | SubCardWhereInput[]
+    title?: StringFilter<"SubCard"> | string
+    description?: StringFilter<"SubCard"> | string
+    createdAt?: DateTimeFilter<"SubCard"> | Date | string
+    updatedAt?: DateTimeFilter<"SubCard"> | Date | string
+    topicId?: StringFilter<"SubCard"> | string
+    topic?: XOR<TopicScalarRelationFilter, TopicWhereInput>
+  }, "id">
+
+  export type SubCardOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    topicId?: SortOrder
+    _count?: SubCardCountOrderByAggregateInput
+    _max?: SubCardMaxOrderByAggregateInput
+    _min?: SubCardMinOrderByAggregateInput
+  }
+
+  export type SubCardScalarWhereWithAggregatesInput = {
+    AND?: SubCardScalarWhereWithAggregatesInput | SubCardScalarWhereWithAggregatesInput[]
+    OR?: SubCardScalarWhereWithAggregatesInput[]
+    NOT?: SubCardScalarWhereWithAggregatesInput | SubCardScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SubCard"> | string
+    title?: StringWithAggregatesFilter<"SubCard"> | string
+    description?: StringWithAggregatesFilter<"SubCard"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"SubCard"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SubCard"> | Date | string
+    topicId?: StringWithAggregatesFilter<"SubCard"> | string
+  }
+
   export type ProjectCreateInput = {
     id?: string
     name: string
@@ -3912,6 +6452,142 @@ export namespace Prisma {
     projectId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TopicCreateInput = {
+    id?: string
+    title: string
+    category: string
+    description: string
+    coverColor?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subCards?: SubCardCreateNestedManyWithoutTopicInput
+  }
+
+  export type TopicUncheckedCreateInput = {
+    id?: string
+    title: string
+    category: string
+    description: string
+    coverColor?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subCards?: SubCardUncheckedCreateNestedManyWithoutTopicInput
+  }
+
+  export type TopicUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subCards?: SubCardUpdateManyWithoutTopicNestedInput
+  }
+
+  export type TopicUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subCards?: SubCardUncheckedUpdateManyWithoutTopicNestedInput
+  }
+
+  export type TopicCreateManyInput = {
+    id?: string
+    title: string
+    category: string
+    description: string
+    coverColor?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TopicUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TopicUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubCardCreateInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    topic: TopicCreateNestedOneWithoutSubCardsInput
+  }
+
+  export type SubCardUncheckedCreateInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    topicId: string
+  }
+
+  export type SubCardUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: TopicUpdateOneRequiredWithoutSubCardsNestedInput
+  }
+
+  export type SubCardUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    topicId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SubCardCreateManyInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    topicId: string
+  }
+
+  export type SubCardUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubCardUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    topicId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -4215,6 +6891,78 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type SubCardListRelationFilter = {
+    every?: SubCardWhereInput
+    some?: SubCardWhereInput
+    none?: SubCardWhereInput
+  }
+
+  export type SubCardOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TopicCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    coverColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TopicMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    coverColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TopicMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    coverColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TopicScalarRelationFilter = {
+    is?: TopicWhereInput
+    isNot?: TopicWhereInput
+  }
+
+  export type SubCardCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    topicId?: SortOrder
+  }
+
+  export type SubCardMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    topicId?: SortOrder
+  }
+
+  export type SubCardMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    topicId?: SortOrder
+  }
+
   export type TaskCreateNestedManyWithoutProjectInput = {
     create?: XOR<TaskCreateWithoutProjectInput, TaskUncheckedCreateWithoutProjectInput> | TaskCreateWithoutProjectInput[] | TaskUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: TaskCreateOrConnectWithoutProjectInput | TaskCreateOrConnectWithoutProjectInput[]
@@ -4307,6 +7055,62 @@ export namespace Prisma {
     delete?: ProjectWhereInput | boolean
     connect?: ProjectWhereUniqueInput
     update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutTasksInput, ProjectUpdateWithoutTasksInput>, ProjectUncheckedUpdateWithoutTasksInput>
+  }
+
+  export type SubCardCreateNestedManyWithoutTopicInput = {
+    create?: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput> | SubCardCreateWithoutTopicInput[] | SubCardUncheckedCreateWithoutTopicInput[]
+    connectOrCreate?: SubCardCreateOrConnectWithoutTopicInput | SubCardCreateOrConnectWithoutTopicInput[]
+    createMany?: SubCardCreateManyTopicInputEnvelope
+    connect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+  }
+
+  export type SubCardUncheckedCreateNestedManyWithoutTopicInput = {
+    create?: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput> | SubCardCreateWithoutTopicInput[] | SubCardUncheckedCreateWithoutTopicInput[]
+    connectOrCreate?: SubCardCreateOrConnectWithoutTopicInput | SubCardCreateOrConnectWithoutTopicInput[]
+    createMany?: SubCardCreateManyTopicInputEnvelope
+    connect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+  }
+
+  export type SubCardUpdateManyWithoutTopicNestedInput = {
+    create?: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput> | SubCardCreateWithoutTopicInput[] | SubCardUncheckedCreateWithoutTopicInput[]
+    connectOrCreate?: SubCardCreateOrConnectWithoutTopicInput | SubCardCreateOrConnectWithoutTopicInput[]
+    upsert?: SubCardUpsertWithWhereUniqueWithoutTopicInput | SubCardUpsertWithWhereUniqueWithoutTopicInput[]
+    createMany?: SubCardCreateManyTopicInputEnvelope
+    set?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    disconnect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    delete?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    connect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    update?: SubCardUpdateWithWhereUniqueWithoutTopicInput | SubCardUpdateWithWhereUniqueWithoutTopicInput[]
+    updateMany?: SubCardUpdateManyWithWhereWithoutTopicInput | SubCardUpdateManyWithWhereWithoutTopicInput[]
+    deleteMany?: SubCardScalarWhereInput | SubCardScalarWhereInput[]
+  }
+
+  export type SubCardUncheckedUpdateManyWithoutTopicNestedInput = {
+    create?: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput> | SubCardCreateWithoutTopicInput[] | SubCardUncheckedCreateWithoutTopicInput[]
+    connectOrCreate?: SubCardCreateOrConnectWithoutTopicInput | SubCardCreateOrConnectWithoutTopicInput[]
+    upsert?: SubCardUpsertWithWhereUniqueWithoutTopicInput | SubCardUpsertWithWhereUniqueWithoutTopicInput[]
+    createMany?: SubCardCreateManyTopicInputEnvelope
+    set?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    disconnect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    delete?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    connect?: SubCardWhereUniqueInput | SubCardWhereUniqueInput[]
+    update?: SubCardUpdateWithWhereUniqueWithoutTopicInput | SubCardUpdateWithWhereUniqueWithoutTopicInput[]
+    updateMany?: SubCardUpdateManyWithWhereWithoutTopicInput | SubCardUpdateManyWithWhereWithoutTopicInput[]
+    deleteMany?: SubCardScalarWhereInput | SubCardScalarWhereInput[]
+  }
+
+  export type TopicCreateNestedOneWithoutSubCardsInput = {
+    create?: XOR<TopicCreateWithoutSubCardsInput, TopicUncheckedCreateWithoutSubCardsInput>
+    connectOrCreate?: TopicCreateOrConnectWithoutSubCardsInput
+    connect?: TopicWhereUniqueInput
+  }
+
+  export type TopicUpdateOneRequiredWithoutSubCardsNestedInput = {
+    create?: XOR<TopicCreateWithoutSubCardsInput, TopicUncheckedCreateWithoutSubCardsInput>
+    connectOrCreate?: TopicCreateOrConnectWithoutSubCardsInput
+    upsert?: TopicUpsertWithoutSubCardsInput
+    connect?: TopicWhereUniqueInput
+    update?: XOR<XOR<TopicUpdateToOneWithWhereWithoutSubCardsInput, TopicUpdateWithoutSubCardsInput>, TopicUncheckedUpdateWithoutSubCardsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4664,6 +7468,116 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SubCardCreateWithoutTopicInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubCardUncheckedCreateWithoutTopicInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubCardCreateOrConnectWithoutTopicInput = {
+    where: SubCardWhereUniqueInput
+    create: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput>
+  }
+
+  export type SubCardCreateManyTopicInputEnvelope = {
+    data: SubCardCreateManyTopicInput | SubCardCreateManyTopicInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SubCardUpsertWithWhereUniqueWithoutTopicInput = {
+    where: SubCardWhereUniqueInput
+    update: XOR<SubCardUpdateWithoutTopicInput, SubCardUncheckedUpdateWithoutTopicInput>
+    create: XOR<SubCardCreateWithoutTopicInput, SubCardUncheckedCreateWithoutTopicInput>
+  }
+
+  export type SubCardUpdateWithWhereUniqueWithoutTopicInput = {
+    where: SubCardWhereUniqueInput
+    data: XOR<SubCardUpdateWithoutTopicInput, SubCardUncheckedUpdateWithoutTopicInput>
+  }
+
+  export type SubCardUpdateManyWithWhereWithoutTopicInput = {
+    where: SubCardScalarWhereInput
+    data: XOR<SubCardUpdateManyMutationInput, SubCardUncheckedUpdateManyWithoutTopicInput>
+  }
+
+  export type SubCardScalarWhereInput = {
+    AND?: SubCardScalarWhereInput | SubCardScalarWhereInput[]
+    OR?: SubCardScalarWhereInput[]
+    NOT?: SubCardScalarWhereInput | SubCardScalarWhereInput[]
+    id?: StringFilter<"SubCard"> | string
+    title?: StringFilter<"SubCard"> | string
+    description?: StringFilter<"SubCard"> | string
+    createdAt?: DateTimeFilter<"SubCard"> | Date | string
+    updatedAt?: DateTimeFilter<"SubCard"> | Date | string
+    topicId?: StringFilter<"SubCard"> | string
+  }
+
+  export type TopicCreateWithoutSubCardsInput = {
+    id?: string
+    title: string
+    category: string
+    description: string
+    coverColor?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TopicUncheckedCreateWithoutSubCardsInput = {
+    id?: string
+    title: string
+    category: string
+    description: string
+    coverColor?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TopicCreateOrConnectWithoutSubCardsInput = {
+    where: TopicWhereUniqueInput
+    create: XOR<TopicCreateWithoutSubCardsInput, TopicUncheckedCreateWithoutSubCardsInput>
+  }
+
+  export type TopicUpsertWithoutSubCardsInput = {
+    update: XOR<TopicUpdateWithoutSubCardsInput, TopicUncheckedUpdateWithoutSubCardsInput>
+    create: XOR<TopicCreateWithoutSubCardsInput, TopicUncheckedCreateWithoutSubCardsInput>
+    where?: TopicWhereInput
+  }
+
+  export type TopicUpdateToOneWithWhereWithoutSubCardsInput = {
+    where?: TopicWhereInput
+    data: XOR<TopicUpdateWithoutSubCardsInput, TopicUncheckedUpdateWithoutSubCardsInput>
+  }
+
+  export type TopicUpdateWithoutSubCardsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TopicUncheckedUpdateWithoutSubCardsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    coverColor?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type TaskCreateManyProjectInput = {
     id?: string
     title: string
@@ -4716,6 +7630,38 @@ export namespace Prisma {
     doneAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubCardCreateManyTopicInput = {
+    id?: string
+    title: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubCardUpdateWithoutTopicInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubCardUncheckedUpdateWithoutTopicInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubCardUncheckedUpdateManyWithoutTopicInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

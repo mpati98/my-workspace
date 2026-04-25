@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { COLOR_PRESETS, PRIORITY_COLOR, PRIORITY_LIST, Project, ProjectStage, Props, STAGE_META, STAGES, STATUS_META, TAG_COLOR, TAG_LIST, Task, TaskForm, TaskStatus, INP } from "./constants";
 import { ColorPicker, StatusBadge } from "./elements";
@@ -1014,6 +1015,39 @@ export function AddTaskModal({
               style={{ background: accentColor }}
             >
               {loading ? "SAVING…" : "ADD TASK"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Modal Shell ───────────────────────────────────────
+export function CollectionModal({ title, onClose, onSubmit, loading, submitLabel, accentColor, children }: {
+  title: string; onClose: () => void; onSubmit: () => void;
+  loading: boolean; submitLabel: string; accentColor?: string; children: React.ReactNode;
+}) {
+  return (
+    <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 overflow-y-auto" onClick={onClose}>
+      <div className="bg-[#16181d] rounded-2xl w-full max-w-md my-auto border border-[#2a2d35] shadow-2xl overflow-hidden"
+        onClick={e => e.stopPropagation()}>
+        {accentColor && <div className="h-1" style={{ background: accentColor }} />}
+        <div className="p-6 sm:p-7">
+          <div className="flex justify-between items-center mb-5">
+            <h2 className="font-mono text-[11px] tracking-widest text-[#a78bfa]">{title}</h2>
+            <button onClick={onClose} className="bg-transparent border-none text-[#4b5563] cursor-pointer text-xl hover:text-[#9ca3af] transition-colors">×</button>
+          </div>
+          {children}
+          <div className="grid grid-cols-2 gap-2.5 mt-6">
+            <button onClick={onClose}
+              className="py-2.5 rounded-xl border border-[#2a2d35] bg-transparent text-[#6b7280] cursor-pointer font-mono text-[10px] tracking-widest hover:border-[#374151] transition-colors">
+              CANCEL
+            </button>
+            <button onClick={onSubmit} disabled={loading}
+              className="py-2.5 rounded-xl border-none text-[#111] cursor-pointer font-mono text-[10px] tracking-widest font-semibold hover:opacity-90 transition-opacity disabled:opacity-60"
+              style={{ background: "#a78bfa" }}>
+              {loading ? "SAVING…" : submitLabel}
             </button>
           </div>
         </div>
