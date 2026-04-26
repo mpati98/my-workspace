@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { COLOR_PRESETS, PRIORITY_COLOR, STATUS_META, TAG_COLOR, Task, TaskStatus, TODAY } from "./constants";
+import { COLOR_PRESETS, PRIORITY_COLOR, PRIORITY_ORDER, STATUS_META, TAG_COLOR, Task, TaskStatus, TODAY } from "./constants";
 import { dueDateDiff, fmtDate } from "./functions";
+import TaskCard from "@/components/project/TaskCard";
 
 
 // ── AnimatedBar ───────────────────────────────────────
@@ -176,6 +177,54 @@ export function TaskRow({ task, onOpenStatus, onDelete }: {
 
       {hov && (
         <button onClick={()=>onDelete(task.id)} className="bg-transparent border-none text-[#f87171] cursor-pointer text-sm px-0.5 shrink-0 opacity-70 hover:opacity-100 transition-opacity">✕</button>
+      )}
+    </div>
+  );
+}
+
+// ── Day Cell ──────────────────────────────────────────
+export function DayCell({ day, tasks, isToday, isCurrentMonth, onTaskClick }: {
+  day: Date; tasks: Task[]; isToday: boolean;
+  isCurrentMonth: boolean; onTaskClick: (task: Task) => void;
+}) {
+  const sorted = [...tasks].sort((a,b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+  const maxVisible = 2;
+  const overflow = sorted.length - maxVisible;
+
+  return (
+    <div className="flex flex-col rounded-lg p-1.5 sm:p-2.5 min-h-20 sm:min-h-27.5 relative overflow-hidden transition-colors"
+      style={{
+        background: isToday ? "#15181f" : "#111214",
+        border: isToday ? "1px solid #a3c47a44" : "1px solid #1a1d24",
+        opacity: isCurrentMonth ? 1 : 0.3,
+      }}>
+      <div className="flex items-center justify-between mb-1 sm:mb-2">
+        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center"
+          style={{ background: isToday ? "#a3c47a" : "transparent" }}>
+          <span className="font-mono text-[10px] sm:text-[11px] leading-none"
+            style={{ color: isToday ? "#111" : isCurrentMonth ? "#9ca3af" : "#2a2d35", fontWeight: isToday ? 700 : 400 }}>
+            {day.getDate()}
+          </span>
+        </div>
+        {sorted.length > 0 && (
+          <span className="font-mono text-[8px] text-[#2a2d35] bg-[#1a1d24] px-1 py-px rounded-full hidden sm:block">
+            {sorted.length}
+          </span>
+        )}
+      </div>
+
+      <div className="flex-1 min-w-0">
+        {sorted.slice(0, maxVisible).map(task => (
+          <TaskCard key={task.id} task={task} onClick={() => onTaskClick(task)} />
+        ))}
+        {overflow > 0 && (
+          <div className="font-mono text-[9px] text-[#374151] pl-2 mt-0.5">+{overflow} more</div>
+        )}
+      </div>
+
+      {isToday && (
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-t bg-[#a3c47a]"
+          style={{ boxShadow: "0 0 8px #a3c47a99" }} />
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import CollectionPage from "@/pages/CollectionPage"
+import CollectionPage from "@/components/pages/CollectionPage"
 
 export const dynamic = "force-dynamic";
 

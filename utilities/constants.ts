@@ -61,6 +61,7 @@ export const PRIORITY_COLOR: Record<string, string> = {
   Medium: "#fbbf24",
   Low: "#6ee7b7",
 };
+export const PRIORITY_ORDER: Record<string, number> = { High: 0, Medium: 1, Low: 2 };
 export type ProjectStage = "planning" | "doing" | "running" | "completed";
 export const STAGES: ProjectStage[] = ["planning", "doing", "running", "completed"];
 export const STAGE_META: Record<ProjectStage, { label: string; color: string; bg: string; icon: string }> = {

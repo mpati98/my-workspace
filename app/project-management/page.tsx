@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import ProjectManagementPage from "@/pages/ProjectManagementPage";
+import ProjectManagementPage from "@/components/pages/ProjectManagementPage";
 
 export const dynamic = "force-dynamic";
 

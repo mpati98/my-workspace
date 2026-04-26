@@ -1,6 +1,6 @@
 import { notFound }        from "next/navigation";
 import { prisma }          from "@/prisma/prisma";
-import ProjectDetailPage   from "@/pages/ProjectDetailPage";
+import ProjectDetailPage   from "@/components/pages/ProjectDetailPage";
 
 export const dynamic = "force-dynamic";
 

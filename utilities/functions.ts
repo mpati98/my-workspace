@@ -35,3 +35,7 @@ export function dueDateDiff(iso: string) {
   const due = new Date(iso); due.setHours(0,0,0,0);
   return Math.round((due.getTime()-TODAY.getTime())/86400000);
 }
+export function toYMD(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
+}
+export function isoToYMD(iso: string): string { return toYMD(new Date(iso)); }
