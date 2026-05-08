@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { COLOR_PRESETS, PRIORITY_COLOR, PRIORITY_ORDER, STATUS_META, TAG_COLOR, Task, TaskStatus, TODAY } from "./constants";
+import { COLOR_PRESETS, PRIORITY_COLOR, PRIORITY_ORDER, Skill, SKILL_META, STATUS_META, TAG_COLOR, Task, TaskStatus, TODAY } from "./constants";
 import { dueDateDiff, fmtDate } from "./functions";
 import TaskCard from "@/components/project/TaskCard";
 
@@ -226,6 +226,26 @@ export function DayCell({ day, tasks, isToday, isCurrentMonth, onTaskClick }: {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-t bg-[#a3c47a]"
           style={{ boxShadow: "0 0 8px #a3c47a99" }} />
       )}
+    </div>
+  );
+}
+
+// ── Progress Tracker ──────────────────────────────────
+export function ProgressTracker({ sessions }: { sessions: Record<Skill, number> }) {
+  const skills: Skill[] = ["listening", "reading", "speaking", "writing"];
+  return (
+    <div className="grid grid-cols-4 gap-2">
+      {skills.map(s => {
+        const m = SKILL_META[s];
+        const count = sessions[s] ?? 0;
+        return (
+          <div key={s} className="bg-[#16181d] rounded-xl p-3 border border-[#1e2128] text-center">
+            <div className="text-xl mb-1">{m.icon}</div>
+            <div className="font-mono text-lg font-bold" style={{ color: m.color }}>{count}</div>
+            <div className="font-mono text-[9px] text-[#374151] tracking-widest">{m.label.toUpperCase()}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

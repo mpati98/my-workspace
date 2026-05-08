@@ -24,6 +24,12 @@ export const LINKS = [
     color: "#c9a96e", 
     page: "Library"
   },
+    { 
+    href: "/english",  
+    label: "§ ENGLISH",  
+    color: "#c9a96e", 
+    page: "English"
+  },
   { 
     href: "/search",      
     label: "§ SEARCH",      
@@ -118,6 +124,7 @@ export const SEPIA = "#7a6a56";
 export const GOLD  = "#c9a96e";
 export const RED = "#c0392b";
 export const LIGHT = "#F5E9D8";
+export const ACCENT = "#22d3ee";
 
 // ── Shared input style ────────────────────────────────
 export const INP = "w-full bg-[#1e2128] border border-[#1e2128] rounded-sm px-3 py-2.5 text-[#e8e3d5] outline-none font-[Cormorant_Garant,serif] text-[15px] focus:border-[#a3c47a] transition-colors";
@@ -145,4 +152,43 @@ export const COVER_PRESETS = [
 ];
 
 export const CATEGORIES = ["Research","Design","Development","Strategy","Personal","Other"];
+
+// English Page
+export type Skill  = "listening" | "reading" | "speaking" | "writing";
+export type Level  = "beginner" | "elementary" | "intermediate" | "advanced";
+export type Action = "generate_exercise" | "evaluate_answer" | "recommend" | "chat";
+export type ChatMsg = { role: "user" | "assistant"; content: string; timestamp: string };
+
+export const SKILL_META: Record<Skill, {
+  label: string; icon: string; color: string; bg: string;
+  desc: string; placeholder: string;
+}> = {
+  listening: {
+    label: "Listening", icon: "🎧", color: "#22d3ee", bg: "#22d3ee18",
+    desc: "Comprehend spoken English through transcripts and audio-style exercises",
+    placeholder: "Type your answers to the comprehension questions…",
+  },
+  reading: {
+    label: "Reading", icon: "📖", color: "#a78bfa", bg: "#a78bfa18",
+    desc: "Build reading comprehension, vocabulary, and inference skills",
+    placeholder: "Answer the reading questions here…",
+  },
+  speaking: {
+    label: "Speaking", icon: "🎤", color: "#34d399", bg: "#34d39918",
+    desc: "Practice speaking fluency — type what you would say aloud",
+    placeholder: "Type your spoken response here (as if speaking aloud)…",
+  },
+  writing: {
+    label: "Writing", icon: "✍", color: "#f472b6", bg: "#f472b618",
+    desc: "Develop writing accuracy, style, and coherence",
+    placeholder: "Write your response here…",
+  },
+};
+
+export const LEVEL_META: Record<Level, { label: string; color: string; cefr: string }> = {
+  beginner:     { label: "Beginner",     color: "#6ee7b7", cefr: "A1–A2" },
+  elementary:   { label: "Elementary",   color: "#7dd3fc", cefr: "A2–B1" },
+  intermediate: { label: "Intermediate", color: "#fbbf24", cefr: "B1–B2" },
+  advanced:     { label: "Advanced",     color: "#f87171", cefr: "C1–C2" },
+};
 
